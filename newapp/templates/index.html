@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+{% load static %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<body>
+    <div class="container">
+        <h1 class="display-1 mb-5">Contact</h1>
+        <table id="contacts" class="table border border-dark">
+            <thead class="thead-dark">
+                <th>Contact Name</th>
+                <th>Email</th>
+                <th>Created Time</th>
+            </thead>
+            {% for x in contact %}
+            <tr>
+                <td><a href="details/{{x.name}}">{{x.name}}</a></td>
+                <td><a href="details/{{x.name}}">{{x.email}}</a></td>
+                <td><a href="details/{{x.name}}">{{x.datetime}}</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br><br>
+        <a href="{% url 'add' %}"><button class="font-weight-bolder btn btn-primary">Add a new Contact</button></a>
+        <footer style="  position: fixed;left: 0;bottom: 0;width: 100%;background-color: rgb(153, 0, 255); color: white; text-align: center;">
+            <h6 class="lead">&copy; Kishan Mehta</h6>
+        </footer>
+    </div>
+</body>
+
+</html>
